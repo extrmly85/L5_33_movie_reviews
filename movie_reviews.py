@@ -33,7 +33,7 @@ def averageRating(title):
 
 
 def topMovies(count=2):
-    ranked=sorted(movies, key=averageRating, reverse=True)
+    ranked = sorted(movies, key=averageRating, reverse=True)
     return ranked[:count]
 
 
@@ -45,6 +45,7 @@ def pickFeatured():
 
 def reviewId(title, reviewText):
     return hashlib.sha256((title + reviewText).encode()).hexdigest()[:10]
+
 
 def printAllReviews():
     titles = list(movies)
@@ -68,9 +69,9 @@ def main():
     printAllReviews()
     print("Top movies:", topMovies())
     print("Featured today:", pickFeatured())
-    print("Review id:", reviewId("Laugh Track", "Not very funny")) # demo id
+    print("Review id:", reviewId("Laugh Track", "Not very funny"))  # demo id
     print("Streaming from", streamAddress())
-    print("Genres:",sorted(movie["genre"] for movie in movies.values()))
+    print("Genres:", sorted(movie["genre"] for movie in movies.values()))
 
 
 main()
